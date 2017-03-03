@@ -1,0 +1,32 @@
+---
+- hosts: all
+  tasks: 
+       
+        - name: Installing Httpd
+          yum:
+            name: httpd
+            state: latest
+
+        - name: Restarting Httpd
+          service:
+             name: httpd
+             state: started
+             enabled: yes
+
+        - name: Installing Php
+          yum:
+             name: php
+             state: latest
+             
+        - name: Installing Mysql
+          yum:
+             name: mysql-server
+             state: latest
+
+        - name: Restarting Mysql services
+          service:
+             name: mysqld
+             state: started
+             enabled: yes
+        
+...       
